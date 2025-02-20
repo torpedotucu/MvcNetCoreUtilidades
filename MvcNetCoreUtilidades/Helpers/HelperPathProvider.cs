@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 
 namespace MvcNetCoreUtilidades.Helpers
 {
@@ -65,6 +66,30 @@ namespace MvcNetCoreUtilidades.Helpers
 
         }
 
+        public string MapUrlPathPaco(string filename, Folders folder)
+        {
+            string carpeta = "";
+            if (folder==Folders.Images)
+            {
+                carpeta="images";
+            }
+            else if (folder==Folders.Facturas)
+            {
+                carpeta="facturas";
+            }
+            else if (folder==Folders.Temporal)
+            {
+                carpeta="temp";
+            }
+            else if (folder==Folders.Uploads)
+            {
+                carpeta="uploads";
+            }
+            var addreses = this.server.Features.Get<IServerAddressesFeature>().Addresses;
+            string serverUrl = addreses.FirstOrDefault();
+            string urlPath = $"{serverUrl}/{carpeta}/{filename}";
+            return urlPath;
+        }
        
     }
 }
