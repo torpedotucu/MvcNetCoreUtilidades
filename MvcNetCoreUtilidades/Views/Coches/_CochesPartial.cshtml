@@ -1,0 +1,16 @@
+﻿@model List<Coche>
+
+@if(Model!=null){
+    <table>
+        @foreach(var coche in Model){
+            <tr>
+                <td>@coche.Marca</td>
+                <td>@coche.Modelo</td>
+                <td>
+                    <img src="@coche.Imagen" height="100px" width="100" />
+                </td>
+            </tr>
+
+        }
+    </table>
+}

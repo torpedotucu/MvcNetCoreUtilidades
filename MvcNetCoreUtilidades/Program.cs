@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 // Add services to the container.
 builder.Services.AddSingleton<HelperPathProvider>();
+builder.Services.AddSession();
 builder.Services.AddMemoryCache();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
@@ -26,6 +27,7 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 app.UseStaticFiles();
+app.UseSession();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")

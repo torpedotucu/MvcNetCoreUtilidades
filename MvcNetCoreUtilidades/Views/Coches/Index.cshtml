@@ -1,0 +1,17 @@
+﻿@section Scripts{
+    <script>
+        $(document).ready(function(){
+            $("#btnLoadCoches").click(function(){
+                $("#containercoches").load("/Coches/_CochesPartial");
+            })
+        })
+    </script>
+}
+<h1>iNDEX DE AJAX COCHES</h1>
+
+<button id="btnLoadCoches" class="btn btn-warning">
+    Load Coches AJAX
+</button>
+<div id="containercoches">
+
+</div>
