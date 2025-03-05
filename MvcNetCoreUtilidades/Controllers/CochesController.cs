@@ -40,5 +40,16 @@ namespace MvcNetCoreUtilidades.Controllers
             //en el momento de delvolver indicamos a que visualizacion tiene quqe hacerlo
             return PartialView("_CochesPartial",this.coches);
         }
+        
+        public IActionResult _CochesPost(int idCoche)
+        {
+            Coche car = this.coches.FirstOrDefault(x => x.IdCoche==idCoche);
+            return PartialView("_DetailsCoche",car);
+        }
+        public IActionResult Details(int idCoche)
+        {
+            Coche car = this.coches.FirstOrDefault(z => z.IdCoche==idCoche);
+            return View(car);
+        }
     }
 }

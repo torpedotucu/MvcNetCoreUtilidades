@@ -1,0 +1,8 @@
+﻿@model Coche
+<h1>COCHE DETAILS</h1>
+@if(Model!=null){
+    <h2>
+        @Model.Marca, @Model.Modelo
+    </h2>
+    <img style="width:250px;height:200px" src="@Model.Imagen"/>
+}

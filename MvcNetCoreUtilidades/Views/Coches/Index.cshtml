@@ -4,11 +4,28 @@
             $("#btnLoadCoches").click(function(){
                 $("#containercoches").load("/Coches/_CochesPartial");
             })
+            $("#btnbuscar").click(function(){
+                /*
+                PARA ENVIAR PARAMETROS SI NUESTRO PARAMETRO SE LLAMA ID SIEMPLEMENTE PONEMOS UNA BARRA Y EL VALOR DEL PARAMETRO EN LA LLAMADA CONTROLLER/ACTION/ID 
+                SI EL PARAMETRO SE LLAMA DE FORMA DIFERENTE DEBEMOS HACERLO CON LAS LLAMADAS TIPICAS DE HTML GET
+                controller/action?param1=valor
+                SI EXISTE MAS DE UN PARAMETRO EN LA PETICION
+                controller/action?param1=valor&param2=valor2
+                */
+               var id=$("#cajaidcoche").val();
+               var request="/Coches/_CochesPost?idCoche="+id;
+               $("#divdetalles").load(request);
+            })
         })
     </script>
 }
 <h1>iNDEX DE AJAX COCHES</h1>
+<input type="text" id="cajaidcoche" class="form-control" />
+<button id="btnbuscar" class="btn btn-danger">Buscar coche</button>
+<div id="divdetalles" class="btn btn-danger" style="background-color:lightcoral">
 
+</div>
+<br />
 <button id="btnLoadCoches" class="btn btn-warning">
     Load Coches AJAX
 </button>
